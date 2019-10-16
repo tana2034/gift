@@ -7,5 +7,5 @@ cache: bundler
 before_script:
   - psql -c 'create database myapp_test;' -U postgres
   - bin/rails db:create
-  - bin/rails rake db:migrate
+  - bin/rails db:migrate
 script: bin/rails test
