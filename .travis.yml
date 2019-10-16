@@ -1,0 +1,11 @@
+language: ruby
+rvm:
+  - 2.6.5
+services: postgresql
+bundler_args: "--without development --deployment -j4"
+cache: bundler
+before_script:
+  - psql -c 'create database myapp_test;' -U postgres
+  - bin/rails db:create
+  - bin/rails db:migrate
+script: bin/rails test
