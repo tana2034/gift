@@ -1,4 +1,10 @@
 language: ruby
 rvm:
   - 2.6.5
-script: rails test
+services: postgresql
+bundler_args: "--without development --deployment -j4"
+cache: bundler
+before_script:
+  - bin/rails db:create
+  - bin/rails rake db:migrate
+script: bin/rails test
