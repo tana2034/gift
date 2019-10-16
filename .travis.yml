@@ -5,6 +5,7 @@ services: postgresql
 bundler_args: "--without development --deployment -j4"
 cache: bundler
 before_script:
+  - psql -c 'create database myapp_test;' -U postgres
   - bin/rails db:create
   - bin/rails rake db:migrate
 script: bin/rails test
