@@ -1,4 +1,6 @@
-require 'test_helper'
+# frozen_string_literal: true
+
+require "test_helper"
 
 class SiteLayoutTest < ActionDispatch::IntegrationTest
   test "layout links" do
@@ -8,5 +10,6 @@ class SiteLayoutTest < ActionDispatch::IntegrationTest
     assert_select "a[href=?]", root_path, count: 2
     assert_select "a[href=?]", help_path
     assert_select "a[href=?]", about_path
+    assert_select "a[href=?]", signup_path
   end
 end
