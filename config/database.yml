@@ -11,10 +11,6 @@ development:
   database: myapp_development
 
 test:
-  adapter: postgresql
-  database: myapp_test
-
-test_local:
   <<: *default
   database: myapp_test
 
