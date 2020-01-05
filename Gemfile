@@ -43,8 +43,7 @@ gem "bcrypt", "~> 3.1.12"
 gem "bootsnap", ">= 1.1.0", require: false
 
 # for pagination
-gem "will_paginate",           "3.1.6"
-gem "bootstrap-will_paginate", "1.0.0"
+gem "kaminari"
 
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
