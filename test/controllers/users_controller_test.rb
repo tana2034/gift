@@ -22,14 +22,14 @@ class UsersControllerTest < ActionDispatch::IntegrationTest
     log_in_as(@other_user)
     assert_not @other_user.admin?
     patch user_path(@other_user), params: {
-                                    user: { password:              'test',
-                                            password_confirmation: 'test',
+                                    user: { password:              "test",
+                                            password_confirmation: "test",
                                             admin: true } }
     assert_not @other_user.admin?
   end
 
   test "should redirect destroy when not logged in" do
-    assert_no_difference 'User.count' do
+    assert_no_difference "User.count" do
       delete user_path(@user)
     end
     assert_redirected_to login_url
@@ -37,9 +37,9 @@ class UsersControllerTest < ActionDispatch::IntegrationTest
 
   test "should redirect destroy when logged in as a non-admin" do
     log_in_as(@other_user)
-    assert_no_difference 'User.count' do
+    assert_no_difference "User.count" do
       delete user_path(@user)
     end
     assert_redirected_to root_url
-  end  
+  end
 end
